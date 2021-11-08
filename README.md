@@ -1,4 +1,4 @@
-Welcome to my personal GitHub. 
+Welcome to my personal GitHub. /
 This is a place for me to host personal projects 
 or projects that've made for classes
 
