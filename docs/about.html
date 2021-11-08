@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html id="blue">
+<head>
+<title>BaileyKnez - About</title>
+<meta charset="UTF-8" />
+<link rel="shortcut icon" href="icon.ico" />
+<link rel="stylesheet" href="page.css" type="text/css"/>
+</head>
+<div id="container">
+
+  <nav role="navigation">
+
+
+  <ul>
+    <li><a id="highlight" href="index.html">Home</a></li>
+    <li><a id="highlight" href="about.html">About</a></li>
+    <li><img src="logo.png" alt="logo" height="45" width="56" class="transform"></li>
+      <li><a id="highlight" href="resume.html">Projects</a></li>
+    <li><a id="highlight" href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+<main id="main">
+  <div id="about1">
+  <h1>Bailey Knezevich</h1>
+  <h2>An Autobiograghy</h2>
+  <br>
+  <img src="profile.jpg" alt="Bailey's profile img" height="300" width="300" class="profile">
+  <br>
+<p>At this point, you might be asking several questions. Such as but not limited to; </p>
+<p>Who is <l>Bailey Knezevich?</l></p>
+<p>What are his qualifications?</p>
+<p>Is he single?</p>
+<p>Well you’re in luck, because some of these questions are going to be answered today.</p>
+</div>
+<div id="about2">
+<table>
+  <tr>
+    <th>School</th>
+    <th>Major</th>
+    <th>Concentration</th>
+  </tr>
+  <tr>
+    <td>Kennesaw State Univiersity</td>
+    <td>Information Technology</td>
+    <td>Enterprise Systems</td>
+  </tr>
+</table>
+</div>
+<div id="about">
+<h2>Reviews From Collegues</h2>
+  
+    <div id="reviews-container">
+      <div id="reviews">
+        <br>
+    <div class="mySlides">
+      <p>He has a little bit of an ego</p>
+      <p>-his mom</p>
+    </div>
+    <div class="mySlides">
+      <p>The man the myth the legend. This guy is something else. Will the world ever realize his greatness? I think not.</p>
+      <p>-also his mom</p>
+    </div>
+    <div class="mySlides">
+      <p>Does anyone else talk about him other than his mom?</p>
+      <p>-you probably</p>
+    </div>
+    <div class="mySlides">
+      <p>Are these real reviews or is he just making this stuff up?</p>
+      <p>-also you</p>
+    </div>
+    
+    <span class="dot-contain">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </span>
+  </div>
+ 
+
+</div>
+  </div>
+</div>
+<div id="about2">
+  <h2>Who is Bailey?</h2>
+  <p>Bailey Knezevich is a Kennesaw State Senior majoring in Information Technology. His passions grew from a young age watching his father work with computers and wanted to grow up to be like him. He is the oldest of five siblings and works hard to be a good role model. His dream job would be to be able to make and manage websites for companies.</p>
+</div>
+<div id="about">
+  <h2>Why make this site?</h2>
+  <p>This Website started off as a porject for his Web and Mobile App class and it quickly became his personal website and a place to host his projects.</p>
+  <p><a href="https://ccse.kennesaw.edu/it/">Course Home</a></p>
+</div>
+<footer id="footer">
+  <br>
+  <img src="logowhite.png" alt="bklogo" width="56px" height="49px">
+  <ul class="footer-elements">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resume.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+<br>
+  <div class="rounded-social-buttons">
+    <a class="social-button facebook" href="https://www.facebook.com/bailey.knezevich.5" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a class="social-button twitter" href="https://twitter.com/knezbailey?lang=en" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a class="social-button linkedin" href="https://www.linkedin.com/in/bailey-knezevich-208767129/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a class="social-button instagram" href="https://www.instagram.com/symphonyforbae/" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+<br>
+</footer>
+</main>
+<script type="text/javascript">
+  var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace("active");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
+</script>
+</html>

@@ -1,0 +1,134 @@
+{
+    "ISBN:1593274874": {
+        "publishers": [
+            {
+                "name": "No Starch Press"
+            }
+        ],
+        "pagination": "xiv, 243 p.",
+        "table_of_contents": [
+            {
+                "title": "Introduction",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "The web platform",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "Structure and semantics",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "Device-responsive CSS",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "New approaches to CSS layouts",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "Modern JavaScript",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "Device APIs",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "Images and graphics",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "New forms",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "Multimedia",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "Web apps",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "The future",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "Appendixes.",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "Browser support as of March 2013",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            },
+            {
+                "title": "Further reading",
+                "label": "",
+                "pagenum": "",
+                "level": 0
+            }
+        ],
+        "title": "The Modern Web",
+        "url": "https://openlibrary.org/books/OL25427547M/The_Modern_Web",
+        "identifiers": {
+            "isbn_13": [
+                "9781593274870"
+            ],
+            "openlibrary": [
+                "OL25427547M"
+            ],
+            "isbn_10": [
+                "1593274874"
+            ]
+        },
+        "cover": {
+            "small": "https://covers.openlibrary.org/b/id/7257680-S.jpg",
+            "large": "https://covers.openlibrary.org/b/id/7257680-L.jpg",
+            "medium": "https://covers.openlibrary.org/b/id/7257680-M.jpg"
+        },
+        "publish_date": "2013",
+        "key": "/books/OL25427547M",
+        "authors": [
+            {
+                "url": "https://openlibrary.org/authors/OL6940720A/Peter_Gasston",
+                "name": "Peter Gasston"
+            }
+        ],
+        "subtitle": "multi-device Web development with HTML5, CSS3, and JavaScript",
+        "publish_places": [
+            {
+                "name": "San Francisco, CA"
+            }
+        ]
+    }
+}

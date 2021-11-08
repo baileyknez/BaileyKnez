@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html id="blue">
+<head>
+  
+<title>BaileyKnez - Google Book</title>
+<meta charset="UTF-8" />
+<link rel="shortcut icon" href="icon.ico" />
+<link rel="stylesheet" href="milestone2.css" type="text/css"/>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+</head>
+<div id="container">
+  <nav role="navigation">
+
+</nav> 
+<main id="main">
+<script>
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+ 
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+ 
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+var id =getUrlParameter('id');
+console.log(id);
+$.get("https://www.googleapis.com/books/v1/volumes/"+id, function(data){
+  console.log(data);
+  $("#t").text(data.volumeInfo.title);
+  $("#st").text(data.volumeInfo.subtitle);
+  $("#cover").attr("src",data.volumeInfo.imageLinks.small);
+  $("#author").text(data.volumeInfo.authors);
+  $("#description").html(data.volumeInfo.description);
+  $("#pub").text(data.volumeInfo.publisher);
+  $("#date").text(data.volumeInfo.publishedDate);
+  $(data.volumeInfo.categories).each(function(i,value){
+    $("#cat").append(value);
+  });
+  $("#rate").text(data.volumeInfo.averageRating + " / 5");
+  $("#nr").text(data.volumeInfo.ratingsCount);
+  $("#mature").text(data.volumeInfo.maturityRating);
+  /*sales info*/
+  $("#country").text(data.saleInfo.country);
+  $("#sale").text(data.saleInfo.saleability);
+  $("#Ebook").text(data.saleInfo.isEbook);
+  /*access info*/
+  $("#accessCountry").text(data.accessInfo.country);
+  $("#view").text(data.accessInfo.viewability);
+  $("#embed").text(data.accessInfo.embeddable);
+  $("#domain").text(data.accessInfo.publicDomain);
+  $("#speech").text(data.accessInfo.textToSpeechPermission);
+  $("#available").text(data.accessInfo.isAvailable);
+  /*dimensions*/
+  $("#pc").text(data.volumeInfo.pageCount);
+  $("#ppc").text(data.volumeInfo.printedPageCount);
+  $("#h").text(data.volumeInfo.dimensions.height);
+  $("#w").text(data.volumeInfo.dimensions.width);
+  $("#th").text(data.volumeInfo.dimensions.thickness);
+});
+</script>
+
+
+  <h1 id="t"></h1>
+  <h2 id="st"></h2>
+
+  <br>
+  <p><img id="cover" src="" alt="book cover" ></p>
+  <div id="about2">
+  
+  </div>
+  <div id="glass">
+  <table>
+    <tr>
+      <th>Author</th>
+      <th>Publisher</th>
+      <th>Published Date</th>
+    </tr>
+    <tr>
+      <td id="author"></td>
+      <td id="pub"></td>
+      <td id="date"></td>
+    </tr>
+    <tr>
+      <th>Rating</th>
+      <th>Number of ratings</th>
+      <th>Maturity</th>
+    </tr>
+    <tr>
+      <td id="rate"></td>
+      <td id="nr"></td>
+      <td id="mature"></td>
+    </tr>
+  </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <h2>Description</h2>
+    <div id="glass">
+      <p><span id="description"><</span></p>
+    </div>
+  <br>
+  <br>
+  <br>
+  <h2>Categories</h2>
+  <div id="glass">
+<p><span id="cat"></span></p>
+  </div>
+
+  <br>
+  <h2>Sale information</h2>
+  <div id="glass">
+  <table>
+  <tr>
+    <th>Country</th>
+    <th>Salability</th>
+    <th>Ebook</th>
+  </tr>
+  <tr>
+    <td id="country"></td>
+    <td id="sale"></td>
+    <td id="Ebook"></td>
+  </tr>
+</table>
+  </div>
+<br>
+<br>
+  <h2>Dimensions</h2>
+  <div id="glass">
+  <table>
+    <tr>
+      <th>Page Count</th>
+      <th>Printed Page Count</th>
+      <th>Height</th>
+    </tr>
+    <tr>
+      <td id="pc"></td>
+      <td id="ppc"></td>
+      <td id="h"></td>
+    </tr>
+    <tr>
+      <th>Width</th>
+      <th>Thickness</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td id="w"></td>
+      <td id="th"></td>
+      <td></td>
+    </tr>
+  </table>
+  </div>
+  <br>
+  <br>
+  <h2>Access Information</h2>
+  <div id="glass">
+  <table>
+    <tr>
+      <th>Viewability</th>
+      <th>Embeddable</th>
+    </tr>
+    <tr>
+      <td id="view"></td>
+      <td id="embed"></td>
+    </tr>
+    <tr>
+      <th>Public Domain</th>
+      <th>Text To Speech</th>
+      <th> </th>
+    </tr>
+    <tr>
+      <td id="domain"></td>
+      <td id="speech"></td>
+      <td> </td>
+    </tr>
+  </table>
+</div>
+<footer id="footer">
+    
+</footer>
+</main>
+
+</html>

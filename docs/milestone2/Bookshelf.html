@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html id="blue">
+<head>
+  
+<title>BaileyKnez - Book Home</title>
+<meta charset="UTF-8" />
+<link rel="shortcut icon" href="icon.ico" />
+<link rel="stylesheet" href="milestone2.css" type="text/css"/>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+</head>
+<div id="container">
+
+</nav> </nav>
+<main id="main">
+  <script>
+    var bool=0;
+    var totalResults=0;  
+    var startIndex=0;
+    var p=1;
+$(document).ready(function(){
+      
+      $loadpage();
+
+      $("#back").click(function(){
+        if(startIndex==0){
+           alert("You can not go back any further")
+        }
+        else{
+           startIndex= startIndex-10;
+           p--;
+           $remove();
+           $loadpage();
+        }
+     });
+
+      $("#next").click(function(){
+        if((startIndex+10)>totalResults){
+            alert("You have reached the end of the search");
+        }
+        else{
+        startIndex=+10;
+        p++;
+        $remove();
+        $loadpage();
+        }
+      });
+    });
+
+    $loadpage = function(){
+    $.get("https://www.googleapis.com/books/v1/users/100449795462524380304/bookshelves/1001/volumes?startIndex="+startIndex, function(searchResponse){
+   console.log(searchResponse);
+   console.log("search from:" + startIndex);
+   totalResults=searchResponse.totalItems;
+   console.log("total results:"+totalResults)
+   var searchdata, cover, id, footer;
+   
+   
+   footer="<p id='indexInfo'>Page "+p+" of 2 </p>";
+   $("#footer-info").append(footer);
+   
+   for (i=0;i<searchResponse.items.length; i++){
+   id= searchResponse.items[i].id;
+   cover = searchResponse.items[i].volumeInfo.imageLinks.thumbnail;
+   searchdata = "<div id='book' >";
+   searchdata += "<br>";
+   searchdata += "<a href='https://baileyknez.azurewebsites.net/milestone2/BookInfo.html?id="+id+"'>";
+   searchdata +=  "<h2 id='title'>"+searchResponse.items[i].volumeInfo.title +"</h2>";
+   searchdata += "</a>";      
+   searchdata += "<br>";
+   searchdata += "<p><img id='img' src='" + cover + "'></p>";
+   searchdata += "<br>";
+   searchdata += "</div>";
+   $("#searchResults").append(searchdata);
+   }
+ });
+}
+$remove = function (){
+    $("div[id*='book']").each(function (x, pj){
+      $(pj).remove();
+  console.log("book removed");
+  }); 
+  $('#indexInfo').remove();   
+}
+  </script>
+<nav>
+  <div id="home-container">
+  <div id="home">
+    <a href="https://baileyknez.azurewebsites.net/resume.html">
+      <img src="logo.png" alt="home" height="45" width="53">
+    </a>
+  </div>
+  <a href="BookHome.html">
+    <p style="font-weight:bold;">Google</p>
+  </a>
+  </div>
+
+</nav>
+<h1>Bailey's BookShelf</h1>
+<br>
+
+<br>
+<span id="searchResults"></span>
+
+</div>
+<br>
+
+<footer id="footer">
+  <div class="container">
+    <div class="center">
+      <button id='back'> Back </button><button id='next'> Next </button>
+    </div>
+  </div>
+  <br>
+  <span id="footer-info"></span>
+  <br>
+  <br>
+  <br>
+</footer>
+</main>
+</html>

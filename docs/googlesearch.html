@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html id="blue">
+<head>
+  
+<title>BaileyKnez - Google Search</title>
+<meta charset="UTF-8" />
+<link rel="shortcut icon" href="icon.ico" />
+<link rel="stylesheet" href="page.css" type="text/css"/>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+</head>
+<div id="container">
+  <nav role="navigation">
+    <ul>
+      <li><a id="highlight" href="index.html">Home</a></li>
+      <li><a id="highlight" href="about.html">About</a></li>
+      <li><img src="logo.png" alt="logo" height="45" width="56" class="transform"></li>
+      <li><a id="highlight" href="resume.html">Projects</a></li>
+      <li><a id="highlight" href="contact.html">Contact</a></li>
+    </ul>
+  
+</nav> 
+<main id="main">
+  <script>
+     $.ajax({
+   url:"https://www.googleapis.com/books/v1/volumes?q=modern%20web",
+   datatype:'json',
+   type:'get',
+   cache:false,
+   success: function(data){
+   var searchdata, cover;
+    for (i=0;i<data.items.length; i++){
+         cover = data.items[i].volumeInfo.imageLinks.thumbnail;
+         searchdata = "<div id='book' >";
+         searchdata +=  "<h2 id='title'>"+data.items[i].volumeInfo.title +"</h2>";
+         searchdata +=  "<h3>"+data.items[i].volumeInfo.subtitle +"</h3>";
+         searchdata += "<p> Authors:</p>";
+         searchdata += "<p>"+data.items[i].volumeInfo.authors +"</p>";
+         searchdata += "<br>";
+				 searchdata += "<p><img src='" + cover + "'></p>";
+         searchdata += "<br>";
+         searchdata += "<p>"+data.items[i].searchInfo.textSnippet +"</p>";
+         searchdata += "<br>";
+         searchdata += "</div>";
+        $("#searchResults").append(searchdata);
+    }
+  }
+});
+  </script>
+<h2><a href="googlebook.html">Google Book </a> | <a href="googlesearch.html">Google Search</a></h2>
+<h1>Google Search</h1>
+
+<div id="search">
+
+  <input id="textbox" type="text" placeholder="...">
+  <input id="button" type="button" value="Search">
+
+<p id="info">Search Results</p>
+</div>
+<br>
+<span id="searchResults"></span>
+
+</div>
+<footer id="footer">
+  <br>
+  <img src="logowhite.png" alt="bklogo" width="56px" height="49px">
+    <ul class="footer-elements">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resume.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+     integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+      crossorigin="anonymous"></script>
+    <br>
+      <div class="rounded-social-buttons">
+        <a class="social-button facebook" href="https://www.facebook.com/bailey.knezevich.5" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a class="social-button twitter" href="https://twitter.com/knezbailey?lang=en" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a class="social-button linkedin" href="https://www.linkedin.com/in/bailey-knezevich-208767129/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a class="social-button instagram" href="https://www.instagram.com/symphonyforbae/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    <br>
+</footer>
+</main>
+<script>
+  $('document').ready(function(){
+  $("#button").click(function(){
+    var search = $('#textbox').val().toUpperCase().trim();
+    var count=0;
+    var boolarray=[0,0,0,0,0,0,0,0,0,0];
+    console.log("button pushed searching for "+search);
+    /*takes an array of all the titles .ready*/
+  $("[id*='title']").each(function (i, el) {
+    console.log("title function called");
+     var text = el.innerHTML.toUpperCase();
+      /*Compares each title with what is going to be searched*/
+      var compare = text.includes(search);
+
+      console.log("compare value "+compare);
+     if(compare){
+      console.log("search found : index"+i+" value "+text );
+      boolarray[i]=1;
+       /*shows project if the title contains search and adds one to counter*/
+     }
+  })
+      console.log(boolarray);
+      /*takes all the ids of the projects*/
+      $("div[id*='book']").each(function (x, pj) {
+      console.log("project function called");
+      /*Uses an array of 0's and 1's to tell which project has the search in it, adds the show attribute and adds to the count*/
+      if(boolarray[x]==1){
+      $(pj).show();
+      count++; 
+      console.log("item shown and count:"+count);
+     }
+     /*Hides project if title does not contain search*/
+     else{
+      console.log(search +" does not match ");
+      console.log("project hidden value:"+pj+" index:"+x);
+      $(pj).hide();  
+     }
+  });
+  /*Shows how many results came up*/
+  $("#info").text(search +" was found "+count+" times");
+});
+$('#textbox').keypress(function(e){
+        if(e.which == 13){//Enter key pressed
+            $('#button').click();//Trigger search button click event
+        }
+    });
+});
+</script>
+</html>
