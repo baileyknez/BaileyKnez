@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html id="blue">
+<head>
+  
+<title>BaileyKnez - Book Home</title>
+<meta charset="UTF-8" />
+<link rel="shortcut icon" href="wwwroot/icon.ico" />
+<link rel="stylesheet" href="page.css" type="text/css"/>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+</head>
+
+<main id="main">
+  <script>
+     $.ajax({
+   url:"https://www.googleapis.com/books/v1/volumes?q=modern%20web",
+   datatype:'json',
+   type:'get',
+   cache:false,
+   success: function(data){
+   var searchdata, cover;
+    for (i=0;i<data.items.length; i++){
+         cover = data.items[i].volumeInfo.imageLinks.thumbnail;
+         searchdata = "<div id='projects' >";
+         searchdata +=  "<h2 id='title'>"+data.items[i].volumeInfo.title +"</h2>";
+         searchdata +=  "<h3>"+data.items[i].volumeInfo.subtitle +"</h3>";
+         searchdata += "<p> Authors:</p>";
+         searchdata += "<p>"+data.items[i].volumeInfo.authors +"</p>";
+         searchdata += "<br>";
+				 searchdata += "<p><img src='" + cover + "'></p>";
+         searchdata += "<br>";
+         searchdata += "<p>"+data.items[i].searchInfo.textSnippet +"</p>";
+         searchdata += "<br>";
+         searchdata += "</div>";
+        $("#searchResults").append(searchdata);
+    }
+  }
+});
+  </script>
+
+<h1>Google Search</h1>
+
+<div id="search">
+
+  <input id="textbox" type="text" placeholder="...">
+  <input id="button" type="button" value="Search">
+
+
+</div>
+<br>
+<span id="searchResults"></span>
+
+</div>
+    <br>
+</footer>
+</main>

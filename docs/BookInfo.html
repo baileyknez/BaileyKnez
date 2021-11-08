@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html id="blue">
+<head>
+  
+<title>BaileyKnez - Google Book</title>
+<meta charset="UTF-8" />
+<link rel="shortcut icon" href="icon.ico" />
+<link rel="stylesheet" href="page.css" type="text/css"/>
+<link rel="json" href="page.css" type="text/css"/>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+</head>
+<div id="container">
+  <nav role="navigation">
+    <ul>
+      <li><a id="highlight" href="index.html">Home</a></li>
+      <li><a id="highlight" href="about.html">About</a></li>
+      <li><img src="logo.png" alt="logo" height="45" width="56" class="transform"></li>
+        <li><a id="highlight" href="resume.html">Projects</a></li>
+      <li><a id="highlight" href="contact.html">Contact</a></li>
+    </ul>
+  </ul>
+</nav> 
+<main id="main">
+<script>
+  $.ajax({
+    url:'google-books-book.json', 
+    datatype:'json',
+    type:'get',
+    cache:false,
+    success: function(data){
+        $("#t").text(data.volumeInfo.title);
+        $("#st").text(data.volumeInfo.subtitle);
+        $("#cover").attr("src",data.volumeInfo.imageLinks.small);
+        $("#author").text(data.volumeInfo.authors);
+        $("#description").html(data.volumeInfo.description);
+        $("#pub").text(data.volumeInfo.publisher);
+        $("#date").text(data.volumeInfo.publishedDate);
+        $(data.volumeInfo.categories).each(function(i,value){
+          $("#cat").append(value);
+        });
+        $("#rate").text(data.volumeInfo.averageRating + " / 5");
+        $("#nr").text(data.volumeInfo.ratingsCount);
+        $("#mature").text(data.volumeInfo.maturityRating);
+        /*sales info*/
+        $("#country").text(data.saleInfo.country);
+        $("#sale").text(data.saleInfo.saleability);
+        $("#Ebook").text(data.saleInfo.isEbook);
+        /*access info*/
+        $("#accessCountry").text(data.accessInfo.country);
+        $("#view").text(data.accessInfo.viewability);
+        $("#embed").text(data.accessInfo.embeddable);
+        $("#domain").text(data.accessInfo.publicDomain);
+        $("#speech").text(data.accessInfo.textToSpeechPermission);
+        $("#available").text(data.accessInfo.isAvailable);
+        /*dimensions*/
+        $("#pc").text(data.volumeInfo.pageCount);
+        $("#ppc").text(data.volumeInfo.printedPageCount);
+        $("#h").text(data.volumeInfo.dimensions.height);
+        $("#w").text(data.volumeInfo.dimensions.width);
+        $("#th").text(data.volumeInfo.dimensions.thickness);
+    }
+  });
+</script>
+<h2><a href="googlebook.html">Google Book </a> | <a href="googlesearch.html">Google Search</a></h2>
+
+  <h1 id="t"></h1>
+  <h2 id="st"></h2>
+  <br>
+  <p><img id="cover" src="" alt="book cover" ></p>
+  <div id="about2">
+  <span id="description"></span>
+  </div>
+  <div id="about">
+  <table>
+    <tr>
+      <th>Author</th>
+      <th>Publisher</th>
+      <th>Published Date</th>
+    </tr>
+    <tr>
+      <td id="author"></td>
+      <td id="pub"></td>
+      <td id="date"></td>
+    </tr>
+    <tr>
+      <th>Rating</th>
+      <th>Number of ratings</th>
+      <th>Maturity</th>
+    </tr>
+    <tr>
+      <td id="rate"></td>
+      <td id="nr"></td>
+      <td id="mature"></td>
+    </tr>
+  </table>
+</div>
+<div id="about2">
+  <h2>Categories</h2>
+<p><span id="cat"></span></p>
+</div>
+<div id="about">
+  <h2>Sale information</h2>
+  <table>
+  <tr>
+    <th>Country</th>
+    <th>Salability</th>
+    <th>Ebook</th>
+  </tr>
+  <tr>
+    <td id="country"></td>
+    <td id="sale"></td>
+    <td id="Ebook"></td>
+  </tr>
+</table>
+
+</div>
+<div id="about2">
+  <h2>Dimensions</h2>
+  <table>
+    <tr>
+      <th>Page Count</th>
+      <th>Printed Page Count</th>
+      <th>Height</th>
+    </tr>
+    <tr>
+      <td id="pc"></td>
+      <td id="ppc"></td>
+      <td id="h"></td>
+    </tr>
+    <tr>
+      <th>Width</th>
+      <th>Thickness</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td id="w"></td>
+      <td id="th"></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+<div id="about">
+  <h2>Access Information</h2>
+  <table>
+    <tr>
+      <th>Viewability</th>
+      <th>Embeddable</th>
+    </tr>
+    <tr>
+      <td id="view"></td>
+      <td id="embed"></td>
+    </tr>
+    <tr>
+      <th>Public Domain</th>
+      <th>Text To Speech</th>
+    </tr>
+    <tr>
+      <td id="domain"></td>
+      <td id="speech"></td>
+    </tr>
+  </table>
+</div>
+</div>
+<footer id="footer">
+  <br>
+  <img src="logowhite.png" alt="bklogo" width="56px" height="49px">
+    <ul class="footer-elements">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resume.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+     integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+      crossorigin="anonymous"></script>
+    <br>
+      <div class="rounded-social-buttons">
+        <a class="social-button facebook" href="https://www.facebook.com/bailey.knezevich.5" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a class="social-button twitter" href="https://twitter.com/knezbailey?lang=en" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a class="social-button linkedin" href="https://www.linkedin.com/in/bailey-knezevich-208767129/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a class="social-button instagram" href="https://www.instagram.com/symphonyforbae/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    <br>
+</footer>
+</main>
+
+</html>

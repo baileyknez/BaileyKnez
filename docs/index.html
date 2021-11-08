@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BaileyKnez - Home Page</title>
+<meta charset="UTF-8" />
+<link rel="shortcut icon" href="icon.ico" />
+<link rel="stylesheet" href="page.css" type="text/css"/>
+<style>
+.animation {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    animation: fadeIn 1.5s forwards;
+    opacity: 0;
+    transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+  
+  .first {
+    display: inline-block;
+    animation: firstSpan 1.5s forwards cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    z-index: 1;
+    position: relative;
+  }
+  
+  .oh {
+    display: inline-flex;
+    overflow: hidden;
+  }
+  
+  .second {
+    animation: secondSpan 1.5s forwards cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    font-weight: 100;
+    z-index: -1;
+    display: inline-block;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(1);
+    } 
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes firstSpan {
+    0% {
+      transform: translateX(50%);
+    }
+    60% {
+      transform: translateX(50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  
+  @keyframes secondSpan {
+    0% {
+      transform: translateX(-100%);
+    }
+    60% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(-0%);
+    }
+  }
+  
+</style>
+</head>
+
+<div id="home-container">
+
+  <nav role="navigation">
+    <ul>
+      <li><a id="highlight" href="index.html">Home</a></li>
+      <li><a id="highlight" href="about.html">About</a></li>
+      <li><img src="logo.png" alt="logo" height="45" width="56" class="transform"></li>
+        <li><a id="highlight" href="resume.html">Projects</a></li>
+      <li><a id="highlight" href="contact.html">Contact</a></li>
+    </ul>
+  </ul>
+</nav> 
+<main id="home">
+
+  <h1>
+    <div class="animation">
+      <span class="first">Bailey</span> 
+      <span class="oh">
+        <span class="second">Knezevich</span>
+      </span>
+    </div>
+  </h1>
+  
+
+</div>
+<footer id="footer">
+  <br>
+  <img src="logowhite.png" alt="bklogo" width="56px" height="49px">
+    <ul class="footer-elements">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resume.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+    <br>
+      <div class="rounded-social-buttons">
+        <a class="social-button facebook" href="https://www.facebook.com/bailey.knezevich.5" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a class="social-button twitter" href="https://twitter.com/knezbailey?lang=en" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a class="social-button linkedin" href="https://www.linkedin.com/in/bailey-knezevich-208767129/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a class="social-button instagram" href="https://www.instagram.com/symphonyforbae/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    <br>
+</footer>
+</main>
+
+</html>
