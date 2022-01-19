@@ -328,6 +328,7 @@ nav p:hover{
   flex-direction: row;
   justify-content: flex-start;
   overflow:scroll;
+  overflow-y:hidden;
 }
 #castMember{
   max-width:15em;
